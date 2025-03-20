@@ -1,0 +1,6 @@
+Repository_10:
+  - ../rules/main.json
+  - ../rules/develop.json
+
+Repository_20:
+  - ../rules/main.json

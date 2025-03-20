@@ -1,0 +1,7 @@
+Repository_10:
+  - Team_10: admin
+  - Team_20: push
+
+Repository_20:
+  - Team_10: pull
+  - Team_30: push

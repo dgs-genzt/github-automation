@@ -1,0 +1,6 @@
+Repository_1:
+  - ../rules/main.json
+  - ../rules/develop.json
+
+Repository_2:
+  - ../rules/main.json

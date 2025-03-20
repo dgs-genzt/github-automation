@@ -1,0 +1,7 @@
+Repository_1:
+  - Team_1: admin
+  - Team_2: push
+
+Repository_2:
+  - Team_1: pull
+  - Team_3: push
