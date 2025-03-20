@@ -1,0 +1,36 @@
+name: Execute Ruleset Create/Update
+
+on:
+  push:
+    paths:
+      - 'rulesets/mapping/org_name_2.yaml'
+
+  workflow_call:
+
+jobs:
+  execute-ruleset:
+    name: Ruleset Execute
+    if: contains(github.ref, 'main') # Condition to check if the branch is main
+    runs-on: ubuntu-latest  
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4  
+
+      - name: Set up Python 3.x
+        uses: actions/setup-python@v4  
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          cd rulesets/scripts
+          python -m pip install --upgrade pip
+          pip install requests pyyaml  # Install necessary dependencies for the script
+
+      - name: Run Python Script if on main or master branch
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd rulesets/scripts
+          python ruleset_automation.py ../mapping/org_name_2.yaml
